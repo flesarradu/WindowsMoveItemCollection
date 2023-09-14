@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WindowsMoveItemCollection.MainPage">
+
+
+        <Grid
+            Padding="30,0"
+            VerticalOptions="Center" RowDefinitions="*,auto">
+
+            <CollectionView Grid.Row="0" ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="60" RowDefinitions=" 30,29,1">
+                            <Label Grid.Row="0" Text="{Binding Label}" FontSize="20" FontAttributes="Bold"/>
+                            <Label Grid.Row="1" Text="{Binding Description}" FontSize="16"/>
+                            <BoxView Grid.Row="2" HeightRequest="1" Color="Red" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button
+                Grid.Row="1"
+                x:Name="CounterBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Command="{Binding MoveCommand}"
+                HorizontalOptions="Center" />
+
+        </Grid>
+
+
+</ContentPage>
